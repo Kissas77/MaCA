@@ -1,0 +1,35 @@
+1 maddpg3_v2:
+    初始化随机
+    v1: 对抗fix_rule, 打击固定第一个单位, pid:
+    v2: 对抗maddpg_v3, 打击固定第一个单位, pid:
+    v3: 对抗fix_rule, 打击随机单位, pid:
+    v4: 对战fix_rule, 打击随机, 开始50步,  pid:
+
+2 maddpg3:
+    初始化随机，pid:
+
+3 maddpg4: 偏角21
+    初始化随机
+    v1: 对战fix_rule, 打击随机, gamma=0.999, 侦察到就不改变偏角, pid:
+    v2: new rule, 奖励没有探测, striking_id代替全局g_striking_pos, gamma=0.999:  todo 14049
+    v3: new rule, 干扰11, 没有条件限制, 奖励没有探测, striking_id代替全局g_striking_pos, gamma=0.999:  todo 30235
+    v4: new rule, 常规奖励,
+    v5: 按照概率选动作， 原始奖励:
+
+4 maddpg2:
+    不随机：
+
+5 self_rule
+    self_rule+11干扰点 vs fix_rule+随机频点 = 73% 22%
+
+6 maddpg5: 航向360
+    v1: 常规奖励： 4388
+    v2: new rule, 常规奖励 :
+    v3:
+
+7 maddpg6:
+    v1: 对战self_rule, 击落100，被击落-50，act：航向7个，hard_replace，2gpu：
+    v2: 与v1类似，soft_replace(tau=0.1)，1gpu：
+    v3：与v2一样，但用最新的多gpu训练:
+
+8 self_learn: 25659  # todo 4
