@@ -1,2 +1,2 @@
-# mymaca
-Game base on RL
+# MaCA
+Game base on MARL
